@@ -1,0 +1,60 @@
+graph TD
+    subgraph "应用层 (Application Layer)"
+        A1[工业制造]
+        A2[商业服务]
+        A3[家庭服务]
+        A4[特种作业]
+    end
+
+    subgraph "智能体层 (Agent Layer)"
+        B1["<b>智元启元大模型</b><br/>(通用具身基座模型)"]
+        B2["<b>世界模型 (EnerVerse/EVAC)</b>"]
+        B3["交互智能"]
+        B4["作业智能"]
+        B5["运动智能 (RL)"]
+    end
+
+    subgraph "操作系统层 (OS Layer)"
+        C1["<b>灵渠OS (Lingqu OS)</b>"]
+        C2["智能体服务框架"]
+        C3["基础算法 (导航/规划/运控)"]
+        C4["<b>AimRT 高性能中间件</b><br/>(分布式通信/硬件抽象)"]
+        C5["开发/仿真/部署工具链"]
+    end
+
+    subgraph "硬件层 (Hardware Layer)"
+        D1["<b>灵犀X1 人形机器人</b>"]
+        D2["PowerFlow自研关节<br/>(R86/R52/L28)"]
+        D3["灵巧手 (OmniHand)"]
+        D4["多模态传感器<br/>(IMU/摄像头/力矩)"]
+        D5["X86计算单元"]
+    end
+
+    A1 --> B3
+    A2 --> B3
+    A3 --> B4
+    A4 --> B5
+
+    B1 --> B3
+    B1 --> B4
+    B2 --> B5
+
+    B3 --> C2
+    B4 --> C2
+    B5 --> C3
+
+    C2 --> C1
+    C3 --> C1
+    C4 --> C1
+    C5 --> C1
+
+    C4 --> D1
+    C4 --> D2
+    C4 --> D3
+    C4 --> D4
+    C4 --> D5
+
+    style B1 fill:#cce5ff,stroke:#333,stroke-width:2px
+    style C1 fill:#d5f5e3,stroke:#333,stroke-width:2px
+    style C4 fill:#fff2cc,stroke:#333,stroke-width:2px
+    style D1 fill:#f5cba7,stroke:#333,stroke-width:2px
