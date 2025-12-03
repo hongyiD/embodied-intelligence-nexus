@@ -1,0 +1,29 @@
+graph TD
+    Start[大模型平台选型] --> Q1{是否需要<br/>数据主权?}
+    
+    Q1 -->|是| Q2{技术团队<br/>能力如何?}
+    Q1 -->|否| Q3{主要语言?}
+    
+    Q2 -->|强| R1[开源模型自部署<br/>LLaMA, Qwen]
+    Q2 -->|弱| R2[国产可本地部署<br/>智谱GLM, 百川]
+    
+    Q3 -->|中文为主| Q4{成本敏感度?}
+    Q3 -->|英文为主| Q5{任务复杂度?}
+    
+    Q4 -->|高| R3[DeepSeek R1<br/>高性价比]
+    Q4 -->|低| R4[智谱GLM-4<br/>平衡性能与成本]
+    
+    Q5 -->|高| Q6{需要长上下文?}
+    Q5 -->|中低| R5[Claude 3<br/>安全性优先]
+    
+    Q6 -->|是| R6[Gemini 1.5 Pro<br/>200万tokens上下文]
+    Q6 -->|否| R7[GPT-4<br/>综合能力最强]
+    
+    style Start fill:#4a90e2
+    style R1 fill:#7ed321
+    style R2 fill:#7ed321
+    style R3 fill:#f5a623
+    style R4 fill:#f5a623
+    style R5 fill:#bd10e0
+    style R6 fill:#bd10e0
+    style R7 fill:#bd10e0

@@ -1,0 +1,50 @@
+graph LR
+    A[需求分析与<br/>场景定义] --> B[系统设计与<br/>架构规划]
+    B --> C[算法开发与<br/>模型训练]
+    C --> D[仿真测试与<br/>验证]
+    D --> E[实物部署与<br/>现场调试]
+    E --> F[运维监控与<br/>持续优化]
+    F -.数据反馈.-> C
+    
+    subgraph "需求阶段"
+        A --> A1[场景调研]
+        A --> A2[需求建模]
+        A --> A3[风险评估]
+    end
+    
+    subgraph "设计阶段"
+        B --> B1[硬件选型]
+        B --> B2[软件架构]
+        B --> B3[资源规划]
+    end
+    
+    subgraph "开发阶段"
+        C --> C1[感知模型训练]
+        C --> C2[决策策略学习]
+        C --> C3[控制算法开发]
+    end
+    
+    subgraph "测试阶段"
+        D --> D1[场景建模]
+        D --> D2[功能测试]
+        D --> D3[性能优化]
+    end
+    
+    subgraph "部署阶段"
+        E --> E1[Sim-to-Real迁移]
+        E --> E2[现场调试]
+        E --> E3[安全验证]
+    end
+    
+    subgraph "运维阶段"
+        F --> F1[远程监控]
+        F --> F2[数据分析]
+        F --> F3[OTA更新]
+    end
+    
+    style A fill:#e3f2fd
+    style B fill:#f3e5f5
+    style C fill:#fff3e0
+    style D fill:#e8f5e9
+    style E fill:#fce4ec
+    style F fill:#e0f2f1

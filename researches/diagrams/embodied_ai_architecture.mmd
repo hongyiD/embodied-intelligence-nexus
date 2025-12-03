@@ -1,0 +1,39 @@
+graph TB
+    subgraph "具身智能三层架构框架 (DP-TA)"
+        A[多模态感知层<br/>Multimodal Perception] --> B[世界建模层<br/>World Modeling]
+        B --> C[策略决策层<br/>Strategy & Decision]
+        C --> D[物理执行层<br/>Physical Execution]
+        D -.反馈.-> A
+    end
+    
+    subgraph "感知模块"
+        A1[视觉传感器<br/>Camera] --> A
+        A2[激光雷达<br/>LiDAR] --> A
+        A3[语音输入<br/>Audio] --> A
+        A4[触觉传感器<br/>Tactile] --> A
+        A --> A5[跨模态对齐<br/>F-CMA]
+    end
+    
+    subgraph "建模模块"
+        B --> B1[因果推理<br/>Causal Reasoning]
+        B --> B2[状态预测<br/>State Prediction]
+        B --> B3[环境表征<br/>Environment Representation]
+    end
+    
+    subgraph "决策模块"
+        C --> C1[任务规划<br/>Task Planning]
+        C --> C2[路径规划<br/>Path Planning]
+        C --> C3[动作生成<br/>Action Generation]
+        C1 -.LLM驱动.-> C4[大语言模型<br/>Large Language Model]
+    end
+    
+    subgraph "执行模块"
+        D --> D1[运动控制<br/>Motion Control]
+        D --> D2[力控制<br/>Force Control]
+        D --> D3[安全监控<br/>Safety Monitor]
+    end
+    
+    style A fill:#e1f5ff
+    style B fill:#fff4e1
+    style C fill:#ffe1f5
+    style D fill:#e1ffe1
