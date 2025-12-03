@@ -1,0 +1,42 @@
+graph TB
+    subgraph "FiLM: 特征调制"
+        A1[文本输入] --> A2[GRU/Transformer编码器]
+        A2 --> A3[生成γ和β参数]
+        A4[图像输入] --> A5[CNN特征提取]
+        A5 --> A6[特征图F]
+        A3 --> A7[FiLM层: γ·F + β]
+        A6 --> A7
+        A7 --> A8[调制后的特征]
+        A8 --> A9[分类器/检测器]
+    end
+    
+    subgraph "MDETR: 端到端多模态检测"
+        B1[图像] --> B2[CNN编码器]
+        B3[文本] --> B4[RoBERTa编码器]
+        B2 --> B5[视觉特征投影]
+        B4 --> B6[文本特征投影]
+        B5 --> B7[拼接]
+        B6 --> B7
+        B7 --> B8[Transformer编码器<br/>跨模态融合]
+        B9[对象查询] --> B10[Transformer解码器]
+        B8 --> B10
+        B10 --> B11[边界框 + 类别]
+        B10 --> B12[软令牌预测<br/>短语对齐]
+    end
+    
+    subgraph "BLIP-2: Q-Former桥接"
+        C1[图像] --> C2[冻结的图像编码器]
+        C2 --> C3[图像特征]
+        C4[可学习查询Q] --> C5[Q-Former]
+        C3 --> C5
+        C5 --> C6[阶段1: ITC+ITM+ITG]
+        C6 --> C7[视觉表示]
+        C7 --> C8[全连接层投影]
+        C8 --> C9[冻结的LLM]
+        C10[文本输入] --> C9
+        C9 --> C11[阶段2: 文本生成]
+    end
+    
+    style A7 fill:#ffcccc
+    style B8 fill:#ccffcc
+    style C5 fill:#ccccff

@@ -50,7 +50,7 @@
 
 ## 📖 关于本研究
 
-**作者**: Manus AI  
+**作者**: Damon Li  
 **日期**: 2025年12月03日  
 **仓库**: [embodied-intelligence-nexus](https://github.com/DemonDamon/embodied-intelligence-nexus)
 
